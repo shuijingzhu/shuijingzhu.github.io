@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>瞳话世界</title>
+	</head>
+	<style>
+		*{
+			margin:0;
+		    padding:0;
+		    border:0;
+		    outline:0;
+		    font-size:100%;
+		    vertical-align:baseline;
+		    background:transparent;
+		    outline-style:none; 
+		}
+		#heartText3{
+			position: absolute;
+			right: 0;
+			width:800px;
+			top: 0;
+			overflow: hidden;
+			font-size: 30px;
+			font-weight: 100;
+			color:black;
+			font-family:wst_ital;	
+			/*font-family:"courier new";*/
+			opacity: 0.6;	
+			/*text-shadow: 5px 1px 6px aqua;					*/		
+		}
+		#div{
+			margin-top: 0px;
+			background-image: url(img/timg.jpg);	
+			background-size:100% 100%;
+			background-repeat:no-repeat;
+		}
+	</style>
+	<body>
+		<div id="div">
+		 <pre id="heartText" style="display: none;"> 
+
+
+	大学时光，从大一起到现在 
+	    突然有一天，她也加入了“王者荣耀” 
+	他就觉得事情不那么简单 
+	
+	于是他们在峡谷里一起征战
+	    他们赢了
+	    
+	在一起后她问他，为什么那么有把握。
+	    他淡淡地一笑：
+	“你邀请我王者的时候我就知道你想要干嘛了” 
+	 </pre>
+		 <pre id="heartText2"> </pre>			 
+		 <pre id="heartText4" style="display: none;"> 
+		//随机颜色的方法
+		function randomColor(){
+			return parseInt(Math.random()*255+1);
+		}
+		//获取窗口的宽高
+		var width=$(Window).width();
+		var height=$(Window).height();
+		$("#div").css({
+			'height':height	,
+			'width':width
+		})
+		//代码部分手写效果
+		var value_dm=$("#heartText4").text();		
+		var count_dm=0;
+		var timer_dm=setInterval(function(){
+			count_dm++;
+			$("#heartText3").text(value_dm.substring
+			(0,count_dm));	
+			var l1=parseInt($("#heartText3").
+			text().length);
+			var l2=parseInt(value_dm.length);			
+			if(l1==l2){
+				clearInterval(timer_dm);
+				clearInterval(timer_container);
+				$("#heartText3").remove();
+			}
+		},4)		
+		//代码所在的容器循环上移
+		var timer_container=setInterval(function(){
+			var t1=$("#heartText3").css("top").
+			replace("px","");
+			$("#heartText3").css("top",
+			(parseInt(t1)-500)+"px");			
+		},6000)
+		//文字部分的手写效果
+		var value=$("#heartText").text();
+		var count=0;
+		var timer=setInterval(function(){
+			count++;
+			$("#heartText2").text(value.
+			substring(0,count));
+			$("#heartText2").css({
+				"color":"rgb("+randomColor()+","
+				+randomColor()+","+randomColor()+")",
+				"fontSize":'30px',
+				'fontFamily':'楷体'
+			})
+			if(count>value.length){
+				clearInterval(timer)
+			}
+		},50)
+		//满天红心的随机漂浮的效果
+		setInterval(function(){			
+			var tem="<p>❤</p>";			
+			$("#div").append(tem);			
+			$("p").css({
+				"z-index": 9999,
+				'position':'absolute',								
+				'top':Math.random()*(height-160)+120,				
+				'left':Math.random()*(width-160)+40,
+				'color':"red",				
+				'fontSize':parseInt(Math.random()
+				*20+20)+'px'
+			})	
+			var p_tem=$("p").css("fontSize").
+			replace("px","");
+			$("p").animate({
+				'top':parseInt($("p").css("top"))-10,
+				'left':parseInt($("p").css("left"))+10,
+				'opacity':0,
+				'fontSize':(parseInt(p_tem)+
+				(Math.random()*10+20))+'px'
+			},3500,function(){
+				$(this).empty()
+			})
+		},300)
+	
+		 </pre>	 
+		 <pre id="heartText3"  > </pre>
+		 <!--<div id="loveHeart">
+        <canvas id="garden"></canvas>
+            <div id="words">
+                <div id="messages">
+                    <center>
+                                                        宝贝我爱你
+                    </center>
+                                                    情人节快乐
+                    <div id="elapseClock" style="display:none"></div>
+                    <a href='index2.html' id="accept">亲爱的，请点击这里</a>
+                </div>
+                <div id="loveu">
+                                                   爱你，直到永永远远。<br/>
+                    <div class="signature">- </div>
+                </div>
+        </div>
+	</div>-->
+		</div>
+	</body>
+	 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	 <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    
+	<script>
+		//随机颜色的方法
+		function randomColor(){
+			return parseInt(Math.random()*255);
+		}
+		//获取窗口的宽高
+		var width=$(Window).width();
+		var height=$(Window).height();
+		$("#div").css({
+			'height':height	,
+			'width':width
+		})
+		//代码部分手写效果
+		var value_dm=$("#heartText4").text();		
+		var count_dm=0;
+		var timer_dm=setInterval(function(){
+			count_dm+=3;
+			$("#heartText3").text(value_dm.substring(0,count_dm));	
+			var l1=parseInt($("#heartText3").text().length);
+			var l2=parseInt(value_dm.length);			
+			if(l1==l2){
+				clearInterval(timer_dm);
+				clearInterval(timer_container);
+				$("#heartText3").remove();
+			}
+		},6)		
+		//代码所在的容器循环上移
+		var timer_container=setInterval(function(){
+			var t1=$("#heartText3").css("top").replace("px","");
+			$("#heartText3").css("top",(parseInt(t1)-500)+"px");			
+		},1800)
+		//文字部分的手写效果
+		var value=$("#heartText").text();
+		var count=0;
+		var timer=setInterval(function(){
+			count++;
+			$("#heartText2").text(value.substring(0,count));
+			$("#heartText2").css({
+				"color":"rgb("+randomColor()+","+randomColor()+","+randomColor()+")",
+				"fontSize":'40px',
+				'fontFamily':'楷体'
+			})
+			if(count>value.length){
+				clearInterval(timer)
+			}
+		},50)
+		//满天红心的随机漂浮的效果
+		setInterval(function(){			
+			var tem="<p>❤</p>";			
+			$("#div").append(tem);			
+			$("p").css({
+				"z-index": 9999,
+				'position':'absolute',								
+				'top':Math.random()*(height-180)+120,				
+				'left':Math.random()*(width-180)+40,
+				'color':"red",				
+				'fontSize':parseInt(Math.random()*20+20)+'px'
+			})	
+			var p_tem=$("p").css("fontSize").replace("px","");
+			$("p").animate({
+				'top':parseInt($("p").css("top"))-20,
+				'left':parseInt($("p").css("left"))+20,
+				'opacity':0,
+				'fontSize':(parseInt(p_tem)+(Math.random()*10+20))+'px'
+			},2500,function(){
+				$(this).empty()
+			})
+		},200)		
+	</script>
+	
+	<script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            $("#copyright").css("position", "absolute");
+            $("#copyright").css("bottom", "10px");
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                adjustWordsPosition();
+                startHeartAnimation();
+            }, 10000);
+            
+            $("#accept").click(function(){
+                $(this).hide();
+                $("#elapseClock").show();
+                var together = new Date();
+                timeElapse(together);
+                setInterval(function () {
+                    timeElapse(together);
+                }, 500);
+            })
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+    </script>
+</html>
+
